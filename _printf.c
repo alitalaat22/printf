@@ -7,42 +7,44 @@
  */
 int _printf(const char *format, ...)
 {
-	int sum = 0;
-	va_list str;
-	char *p, *start;
-	my_parameters params = f_par;
+int result = 0;
+va_list str;
+char *ptr;
+char *begin;
 
-	va_start(str, format);
+my_parameters params = f_par;
 
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	for (p = (char *)format; *p; p++)
-	{
-		first_parameters(&params, str);
-		if (*p != '%')
-		{
-			sum += my_putchar(*p);
-			continue;
-		}
-		start = p;
-		p++;
-		while (obtain_flag(p, &params)) /* while char at p is flag char */
-		{
-			p++; /* next char */
-		}
-		p = obtain_width(p, &params, str);
-		p = obtain_precision(p, &params, str);
-		if (obtain_modifier(p, &params))
-			p++;
-		if (!obtain_specifier(p))
-			sum += range_print(start, p,
-				params.long_mod || params.short_mod ? p - 1 : 0);
-		else
-			sum += obtain_print(p, str, &params);
-	}
-	my_putchar(flush);
-	va_end(str);
-	return (sum);
+va_start(str, format);
+/* test cases */
+if (!format || (format[0] == '%' && !format[1]))
+return (-1);
+if (format[0] == '%' && format[1] == ' ' && !format[2])
+return (-1);
+for (ptr = (char *)format; *ptr; ptr++)
+{
+first_parameters(&params, str);
+if (*ptr != '%')
+{
+result += my_putchar(*ptr);
+continue;
+}
+begin = ptr;
+ptr++;
+while (obtain_flag(ptr, &params)) /* check if flag */
+{
+ptr++;/* move to next character */
+}
+ptr = obtain_width(ptr, &params, str);
+ptr = obtain_precision(ptr, &params, str);
+if (obtain_modifier(ptr, &params))
+ptr++;
+if (!obtain_specifier(ptr))
+{ result += range_print(begin, ptr,
+params.long_mod || params.short_mod ? ptr - 1 : 0); }
+else
+result += obtain_print(ptr, str, &params);
+}
+my_putchar(flush);
+va_end(str);
+return (result);
 }
