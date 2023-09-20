@@ -16,6 +16,7 @@ int (*func_spec(char x))(va_list args)
 		{'p', pt_pointer},
 		{'i', pt_int},
 		{'b', pt_binary},
+		{'R', rot13_ch},
 		{'\0', NULL}
 	};
 	while (specifier[y].letter != '\0')
@@ -56,7 +57,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[y + 1] == ' ')
 				y++;
-			func_f =func_spec(format[y + 1]);
+			func_f = func_spec(format[y + 1]);
 			if (func_f)
 			{
 				counter += func_f(args);

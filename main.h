@@ -24,7 +24,7 @@ int pt_binary(va_list args);
 int pt_pointer(va_list args);
 int (*func_spec(char x))(va_list args);
 int _printf(const char *format, ...);
-
+int rot13_ch(va_list args);
 
 /**
  * struct specifier - structure
