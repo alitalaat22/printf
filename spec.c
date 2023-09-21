@@ -66,6 +66,9 @@ break;
 case 'S':
 counter = counter + custom_s(args);
 break;
+case 'R':
+counter = counter + rot13_ch(args);
+break;
 case 'p':
 counter = counter + my_pointer(args);
 break;
