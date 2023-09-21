@@ -67,6 +67,7 @@ case 'S':
 counter = counter + custom_s(args);
 break;
 case 'R':
+case 'r':
 counter = counter + rot13_ch(args);
 break;
 case 'p':
