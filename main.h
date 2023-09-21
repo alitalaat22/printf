@@ -9,7 +9,7 @@
 #include <limits.h>
 #include <stdint.h>
 
-
+int rot13_ch(va_list args);
 int my_putchar(char c);
 int _printf(const char *format, ...);
 int my_char(va_list args);
