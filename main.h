@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <stdint.h>
-int reverse(va_list ptr, my_parameters *p);
+int reverse(va_list ptr);
 int rot13_ch(va_list args);
 int my_putchar(char c);
 int _printf(const char *format, ...);

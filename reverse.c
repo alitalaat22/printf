@@ -5,12 +5,11 @@
  * @p: parameters
  * Return: sum of bytes
  */
-int reverse(va_list ptr, my_parameters *p)
+int reverse(va_list ptr)
 {
 int length_string;
 int result = 0;
 char *pointer = va_arg(ptr, char *);
-(void)p;
 
 if (pointer)
 {
