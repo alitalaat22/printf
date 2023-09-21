@@ -70,7 +70,7 @@ case 'R':
 counter = counter + rot13_ch(args);
 break;
 case 'r':
-counter = counter + reverse(ptr, p);
+counter = counter + rev(args);
 break;
 case 'p':
 counter = counter + my_pointer(args);
