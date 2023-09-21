@@ -8,7 +8,11 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <stdint.h>
+<<<<<<< HEAD
 int reverse(va_list ptr);
+=======
+int rev(va_list args);
+>>>>>>> 062f440d942cde89bc6e0ec725b3cf9e4ef417e4
 int rot13_ch(va_list args);
 int my_putchar(char c);
 int _printf(const char *format, ...);
