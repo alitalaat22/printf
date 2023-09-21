@@ -19,7 +19,7 @@ for (len = 0; *str; str++)
 len++;
 str--;
 for (; len > 0; len--, str--)
-sum = sum + _printf("%r",str);
+sum +=  _printf("%r",str);
 }
 return (sum);
 }
