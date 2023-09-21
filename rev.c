@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * rev - printing reverse
@@ -9,7 +10,7 @@
 int rev(va_list args)
 {
 int len, sum = 0;
-char *str = va_arg(args+, char *);
+char *str = va_arg(args, char *);
 (void)args;
 
 if (str)
