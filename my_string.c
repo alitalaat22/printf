@@ -1,24 +1,22 @@
 #include "main.h"
-
 /**
 * my_string - a function to s handle
-* @args: argument
+* @args: arguments
 * Return: num of chars
 */
 int my_string(va_list args)
 {
-char *ptr = va_arg(args, char *);
 int counter = 0;
-int index = 0;
+int index;
+char *ptr = va_arg(args, char *);
 
-if (ptr == NULL)
+if (!ptr)
 {
 ptr = "(null)";
 }
-while (ptr[index])
+for (index = 0; ptr[index]; index++)
 {
 counter = counter + my_putchar(ptr[index]);
-index++;
 }
 return (counter);
 }

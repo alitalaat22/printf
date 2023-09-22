@@ -9,25 +9,32 @@
 */
 int octal(va_list args, char flag, char length)
 {
-	unsigned long int long_n;
-	unsigned short int short_n;
-	unsigned int num;
+unsigned long int long_n;
+unsigned short int short_n;
+unsigned int num;
 
-	if (length == 'l')
-	{
-		long_n = va_arg(args, unsigned long int);
-		return (my_long_octal(long_n, flag));
-	}
-	else if (length == 'h')
-	{
-		short_n = (unsigned short int)va_arg(args, unsigned int);
-		return (my_short_octal(short_n, flag));
-	}
-	else
-	{
-		num = va_arg(args, unsigned int);
-		return (my_octal(num, flag));
-	}
+switch (length)
+{
+case 'l':
+{
+long_n = va_arg(args, unsigned long int);
+return (my_long_octal(long_n, flag));
+break;
+}
+case 'h':
+{
+short_n = (unsigned short int)va_arg(args, unsigned int);
+return (my_short_octal(short_n, flag));
+break;
+}
+default:
+{
+num = va_arg(args, unsigned int);
+return (my_octal(num, flag));
+break;
+}
+}
+
 }
 /**
 *my_octal - Prints an unsigned int in octal
@@ -37,20 +44,20 @@ int octal(va_list args, char flag, char length)
 */
 int my_octal(unsigned int num, char flag)
 {
-	unsigned int i = num;
-	int count = 0;
+unsigned int index = num;
+int counter = 0;
 
-	if (flag == '#')
-	{
-		my_putchar('0');
-		count++;
-	}
+if (flag == '#')
+{
+my_putchar('0');
+counter++;
+}
 
-	if (i / 8)
-		count += my_octal(i / 8, '\0');
-	count += my_putchar((i % 8) + '0');
+if (index / 8)
+counter = counter + my_octal(index / 8, '\0');
+counter = counter + my_putchar((index % 8) + '0');
 
-	return (count);
+return (counter);
 }
 
 /**
@@ -61,20 +68,20 @@ int my_octal(unsigned int num, char flag)
 */
 int my_long_octal(unsigned long int num_l, char flag)
 {
-	unsigned long int i = num_l;
-	int count = 0;
+unsigned long int index = num_l;
+int counter = 0;
 
-	if (flag == '#')
-	{
-		my_putchar('0');
-		count++;
-	}
+if (flag == '#')
+{
+my_putchar('0');
+counter++;
+}
 
-	if (i / 8)
-		count += my_long_octal(i / 8, '\0');
-	count += my_putchar((i % 8) + '0');
+if (index / 8)
+counter = counter + my_long_octal(index / 8, '\0');
+counter = counter + my_putchar((index % 8) + '0');
 
-	return (count);
+return (counter);
 }
 
 /**
@@ -85,18 +92,18 @@ int my_long_octal(unsigned long int num_l, char flag)
 */
 int my_short_octal(unsigned short int num_h, char flag)
 {
-	unsigned short int i = num_h;
-	int count = 0;
+	unsigned short int index = num_h;
+	int counter = 0;
 
 	if (flag == '#')
 	{
 		my_putchar('0');
-		count++;
+		counter++;
 	}
 
-	if (i / 8)
-		count += my_short_octal(i / 8, '\0');
-	count += my_putchar((i % 8) + '0');
+	if (index / 8)
+		counter = counter + my_short_octal(index / 8, '\0');
+	counter = counter + my_putchar((index % 8) + '0');
 
-	return (count);
+	return (counter);
 }

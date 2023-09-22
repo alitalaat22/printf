@@ -11,24 +11,25 @@ int my_specifier(char specifier, va_list args, char flag, char length)
 {
 int counter = 0;
 
-switch (specifier)
+if (specifier == 'c')
 {
-case 'c':
 counter = counter + my_char(args);
-break;
-case 's':
+}
+else if (specifier == 's')
+{
 counter = counter + my_string(args);
-break;
-case '%':
+}
+else if (specifier == '%')
+{
 counter = counter + my_putchar('%');
-break;
-case 'd':
-case 'i':
+}
+else if (specifier == 'd' || specifier == 'i')
+{
 counter = counter + my_integer(args, flag, length);
-break;
-default:
+}
+else
+{
 counter = counter + your_specifier(specifier, args, flag, length);
-break;
 }
 
 return (counter);
@@ -46,39 +47,35 @@ int your_specifier(char specifier, va_list args, char flag, char length)
 {
 int counter = 0;
 
-switch (specifier)
+if (specifier == 'b')
 {
-case 'b':
-counter = counter + my_binary(args);
-break;
-case 'u':
-counter = counter + my_unsign_int(args, length);
-break;
-case 'o':
-counter = counter + octal(args, flag, length);
-break;
-case 'x':
-counter = counter + hex_low(args, flag, length);
-break;
-case 'X':
-counter = counter + hex_up(args, flag, length);
-break;
-case 'S':
-counter = counter + custom_s(args);
-break;
-case 'R':
-counter = counter + rot13_ch(args);
-break;
-case 'r':
-counter = counter + rev(args);
-break;
-case 'p':
+counter = counter + my_binary(args); }
+else if (specifier == 'u')
+{
+counter = counter + my_unsign_int(args, length); }
+else if (specifier == 'o')
+{
+counter = counter + octal(args, flag, length); }
+else if (specifier == 'x')
+{
+counter = counter + hex_low(args, flag, length); }
+else if (specifier == 'X')
+{
+counter = counter + hex_up(args, flag, length); }
+else if (specifier == 'S')
+{
+counter = counter + custom_s(args); }
+else if (specifier == 'R')
+{
+counter = counter + rot13_ch(args); }
+else if (specifier == 'p')
+{
 counter = counter + my_pointer(args);
-break;
-default:
+}
+else
+{
 counter = counter + my_putchar('%');
 counter = counter + my_putchar(specifier);
-break;
 }
 
 return (counter);

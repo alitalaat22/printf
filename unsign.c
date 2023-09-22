@@ -13,18 +13,18 @@ unsigned int num;
 
 if (length == 'l')
 {
-n_long = va_arg(args, unsigned long int);
-return (print_unsigned_long(n_long));
+long_n = va_arg(args, unsigned long int);
+return (my_long_octal(long_n, flag));
 }
 else if (length == 'h')
 {
-n_short = (unsigned short int)va_arg(args, unsigned int);
-return (print_unsigned_short(n_short));
+short_n = (unsigned short int)va_arg(args, unsigned int);
+return (my_short_octal(short_n, flag));
 }
 else
 {
 num = va_arg(args, unsigned int);
-return (print_unsigned_int(num));
+return (my_octal(num, flag));
 }
 }
 /**
