@@ -68,6 +68,9 @@ counter = counter + custom_s(args); }
 else if (specifier == 'R')
 {
 counter = counter + rot13_ch(args); }
+else if (specifier == 'r')
+{
+counter = counter + rev(args); }
 else if (specifier == 'p')
 {
 counter = counter + my_pointer(args);
