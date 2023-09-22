@@ -7,24 +7,24 @@
 */
 int my_unsign_int(va_list args, char length)
 {
-unsigned long int n_long;
-unsigned short int n_short;
+unsigned long int num_l;
+unsigned short int num_h;
 unsigned int num;
 
 if (length == 'l')
 {
-long_n = va_arg(args, unsigned long int);
-return (my_long_octal(long_n, flag));
+num_l = va_arg(args, unsigned long int);
+return (print_unsigned_long(num_l));
 }
 else if (length == 'h')
 {
-short_n = (unsigned short int)va_arg(args, unsigned int);
-return (my_short_octal(short_n, flag));
+num_h = (unsigned short int)va_arg(args, unsigned int);
+return (print_unsigned_short(num_h));
 }
 else
 {
 num = va_arg(args, unsigned int);
-return (my_octal(num, flag));
+return (print_unsigned_int(num));
 }
 }
 /**

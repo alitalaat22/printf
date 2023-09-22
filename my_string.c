@@ -6,17 +6,19 @@
 */
 int my_string(va_list args)
 {
-int counter = 0;
-int index;
 char *ptr = va_arg(args, char *);
+int counter = 0;
+int index = 0;
 
-if (!ptr)
+if (ptr == NULL)
 {
 ptr = "(null)";
 }
-for (index = 0; ptr[index]; index++)
+
+while (ptr[index])
 {
-counter = counter + my_putchar(ptr[index]);
+counter += my_putchar(ptr[index]);
+index++;
 }
 return (counter);
 }

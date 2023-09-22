@@ -16,7 +16,7 @@ char rot13_array[] =
 
 (void)args;
 
-while (string[char_index] != NULL)
+while (string[char_index])
 {
 if ((string[char_index] >= 'A' && string[char_index] <= 'Z')
 || (string[char_index] >= 'a' && string[char_index] <= 'z'))

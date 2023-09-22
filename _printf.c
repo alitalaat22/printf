@@ -6,12 +6,12 @@
  */
 int _printf(const char *format, ...)
 {
+va_list args;
 int counter = 0;
 int result;
-va_list args;
 
 va_start(args, format);
-if (!format)
+if (format == NULL)
 return (-1);
 while (*format)
 {
@@ -50,14 +50,14 @@ return (counter);
  * flag_and_specifier - a function that handles the flag chars
  * @format: Ptr to current pos in string
  * @args: arguments
- * @counter: Pointer to counter of chars
+ * @count: Pointer to counter of chars
  * Return: 0 or -1
  */
-int flag_and_specifier(const char **format, va_list args, int *counter)
+int flag_and_specifier(const char **format, va_list args, int *count)
 {
 char flag = '\0';
-int result;
 char length = '\0';
+int result;
 
 if (**format == '+' || **format == ' ' || **format == '#')
 {
@@ -81,6 +81,6 @@ length = '\0';
 result = my_specifier(**format, args, flag, length);
 if (result == -1)
 return (-1);
-*counter = *counter + result;
+*count += result;
 return (0);
 }

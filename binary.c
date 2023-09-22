@@ -6,8 +6,8 @@
 */
 int my_binary(va_list args)
 {
-int counter = 0;
 unsigned int num = va_arg(args, unsigned int);
+int counter = 0;
 unsigned int masker = 1u << 31;
 
 while ((masker & num) == 0 && masker != 0)

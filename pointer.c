@@ -6,21 +6,21 @@
 */
 int my_pointer(va_list args)
 {
-int counter = 0;
-int jar = 0;
-char hex_buff[16];
-int index = 0;
 void *str = va_arg(args, void *);
 uintptr_t add = (uintptr_t)str;
+int counter = 0;
+int jar;
+char hex_buff[16];
+int index = 0;
 char *ptr;
 
-if (!str)
+if (str == NULL)
 {
 ptr = "(nil)";
-while (ptr[jar] != '\0')
+
+for (jar = 0; ptr[jar] != '\0'; jar++)
 {
-counter = counter + my_putchar(ptr[jar]);
-jar++;
+counter += my_putchar(ptr[jar]);
 }
 return (counter);
 }
@@ -39,11 +39,11 @@ hex_buff[index++] = 'a' + (remain - 10);
 
 add = add / 16;
 }
-jar = index - 1;
-while (jar >= 0)
+
+for (jar = index - 1; jar >= 0; jar--)
 {
-counter = counter + my_putchar(hex_buff[jar]);
-jar--;
+counter += my_putchar(hex_buff[jar]);
 }
+
 return (counter);
 }

@@ -14,8 +14,8 @@ int my_putchar(char c);
 int _printf(const char *format, ...);
 int my_char(va_list args);
 int my_string(va_list args);
-void p_integer(long int num, int *counter, char flag, int start);
-int my_integer(va_list args, char flag, char length);
+void p_integer(long int n, int *count, char flag, int is_start);
+int my_integer(va_list args, char flag, char length_modifier);
 int my_binary(va_list args);
 int my_unsign_int(va_list args, char length);
 int print_unsigned_int(unsigned int num);
@@ -32,10 +32,10 @@ int short_hex(unsigned short int num_h, int upper, char flag);
 int long_hex(unsigned long int num_l, int upper, char flag);
 int my_specifier(char specifier, va_list args, char flag, char length);
 int your_specifier(char specifier, va_list args, char flag, char length);
-int print_hex(unsigned char character, char flags);
+int print_hex(unsigned char c, char flags);
 int custom_s(va_list args);
 int my_pointer(va_list args);
-int flag_and_specifier(const char **format, va_list args, int *counter);
+int flag_and_specifier(const char **format, va_list args, int *count);
 
 #endif
 

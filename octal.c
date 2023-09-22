@@ -13,28 +13,21 @@ unsigned long int long_n;
 unsigned short int short_n;
 unsigned int num;
 
-switch (length)
-{
-case 'l':
+if (length == 'l')
 {
 long_n = va_arg(args, unsigned long int);
 return (my_long_octal(long_n, flag));
-break;
 }
-case 'h':
+else if (length == 'h')
 {
 short_n = (unsigned short int)va_arg(args, unsigned int);
 return (my_short_octal(short_n, flag));
-break;
 }
-default:
+else
 {
 num = va_arg(args, unsigned int);
 return (my_octal(num, flag));
-break;
 }
-}
-
 }
 /**
 *my_octal - Prints an unsigned int in octal
@@ -92,18 +85,18 @@ return (counter);
 */
 int my_short_octal(unsigned short int num_h, char flag)
 {
-	unsigned short int index = num_h;
-	int counter = 0;
+unsigned short int index = num_h;
+int counter = 0;
 
-	if (flag == '#')
-	{
-		my_putchar('0');
-		counter++;
-	}
+if (flag == '#')
+{
+my_putchar('0');
+counter++;
+}
 
-	if (index / 8)
-		counter = counter + my_short_octal(index / 8, '\0');
-	counter = counter + my_putchar((index % 8) + '0');
+if (index / 8)
+counter = counter + my_short_octal(index / 8, '\0');
+counter = counter + my_putchar((index % 8) + '0');
 
-	return (counter);
+return (counter);
 }
