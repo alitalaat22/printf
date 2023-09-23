@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <stdint.h>
+
 int rev(va_list args);
 int rot13_ch(va_list args);
 int my_putchar(char c);
